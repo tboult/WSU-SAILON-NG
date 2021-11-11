@@ -2591,7 +2591,9 @@ class TA1:
                             n][d][n]['episodes']
                         episode_indexes[n][d][n] = list(range(size))
 
-        for novelty_visibility in [0, 1]:
+                        #TB for local testing we don't want to have "none" it just takes tiem and offers no insights
+#        for novelty_visibility in [1, 0]:
+        for novelty_visibility in [1]:            
             for novelty, difficulty in novelty_diff:
                 # Refresh any needed AMQP heartbeats.
                 self.amqp.process_data_events()

@@ -305,6 +305,7 @@ class TA2Agent(TA2Logic):
         self.log.debug('Testing Instance: feature_vector={}, novelty_indicator={}'.format(
             feature_vector, novelty_indicator))
 
+        self.log.info('novelty_indicator={}'.format(str(novelty_indicator)))
         # Return dummy random choices, but should be determined by trained model
         label_prediction = random.choice(self.possible_answers)
 

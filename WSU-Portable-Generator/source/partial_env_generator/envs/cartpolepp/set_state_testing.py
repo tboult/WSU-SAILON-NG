@@ -6,15 +6,18 @@ import random
 #env_location = importlib.util.spec_from_file_location('CartPoleBulletEnv', \
 #    'WSU-SAILON-NG-master/WSU-Portable-Generator/source/partial_env_generator/envs/cartpolepp/cartpoleplusplus.py')
 env_location = importlib.util.spec_from_file_location('CartPoleBulletEnv', 'cartpoleplusplus.py')
+env1_location = importlib.util.spec_from_file_location('CartPoleBulletEnv', 'cartpoleplusplusnew.py')
 env_class = importlib.util.module_from_spec(env_location)
 env_location.loader.exec_module(env_class)
+env1_class = importlib.util.module_from_spec(env1_location)
+env1_location.loader.exec_module(env1_class)
 
 print("Start test")
 
 env = env_class.CartPoleBulletEnv()
-env1 = env_class.CartPoleBulletEnv()
+env1 = env1_class.CartPoleBulletEnv()
 env.path = "WSU-SAILON-NG/WSU-Portable-Generator/source/partial_env_generator/envs/cartpolepp"
-env1.path = "WSU-SAILON-NG*sh/WSU-Portable-Generator/source/partial_env_generator/envs/cartpolepp"
+env1.path = "WSU-SAILON-NG/WSU-Portable-Generator/source/partial_env_generator/envs/cartpolepp"
 env.path = "."
 env1.path = "."
 
@@ -63,8 +66,3 @@ for i in range(20):
 print("Stepstep 20x State diff", env.state_diff(env1.get_state()))
 
 print("If all stat differences are < 10^-5 (or 10*roundamount) then smile, be happy")
-
-
-
-
-
